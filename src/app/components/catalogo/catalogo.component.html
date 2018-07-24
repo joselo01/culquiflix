@@ -1,0 +1,43 @@
+<div id="container">
+  <div class="form">
+  <input type="text" [(ngModel)]="term" placeholder="Search Movies">
+ </div>
+  <ul *ngIf="_ps.results.length > 0"
+    class="listado">
+    <li *ngFor="let item of _ps.results | paginate: { itemsPerPage:6, currentPage:p } | filter:term">
+      <div class="box">
+        <img src="https://image.tmdb.org/t/p/w500{{item.poster_path}}">
+        <div class="info-1">
+          <div class="titulo">{{ item.title }}</div>
+          <div class="genero">
+            <span *ngFor="let gen of item.genre_all">
+            {{gen.name}}
+        </span>
+          </div>
+        </div>
+        <div class="info-2">
+          <div class="rating">
+            <div class="ico"><img src="assets/images/heart.svg"></div>
+            <div class="value">{{item.vote_average}}</div>
+          </div>
+          <div class="Boxbtn">
+            <a class="btnDetalle"
+            [routerLink]="['/movie', item.id ]"
+            >Detalle</a>
+            <!-- <button (click)="ver (detalle, detalleModal)" class="btnDetalle">Detalle</button> -->
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div class="paginacion">
+    <div class="box-pag">
+      <pagination-controls (pageChange)="p = $event" directionLinks="false" autoHide="false" previousLabel="false" nextLabel="false" screenReaderPageLabel="false" screenReaderPaginationLabel="false" screenReaderCurrentLabel="false"></pagination-controls>
+    </div>
+  </div>
+</div>
+
+
+<!-- <ng-template #detalleModal>
+
+<ng-template> -->

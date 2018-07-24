@@ -1,0 +1,43 @@
+<div *ngIf="movie">
+<div class="modal">
+  <div class="box-detalle">
+    <div class="info-detalle">
+      <div class="titulo-detalle">{{ movie.title }}</div>
+      <hr>
+      <div class="genero-detalle">
+            <span *ngFor="let mem of movie.genres">
+              {{mem.name}}
+            </span>
+      </div>
+      <div class="idioma">{{movie.original_language}}</div>
+      <div class="rating-detalle">
+        <ul>
+          <li>
+            <div class="rating-ico"><img src="assets/images/rating.png"></div>
+            <div class="rating">{{movie.vote_average}}</div>
+            <div class="rating-titulo">Rating</div>
+          </li>
+          <li>
+            <div class="rating-ico"><img src="assets/images/popularity.png"></div>
+            <div class="rating">{{movie.popularity}}</div>
+            <div class="rating-titulo">Popularity</div>
+          </li>
+          <li>
+            <div class="rating-ico"><img src="assets/images/votes.png"></div>
+            <div class="rating">{{movie.vote_count}}</div>
+            <div class="rating-titulo">Votes</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="picture"><img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}"></div>
+  <div class="detalle">
+    <p>{{movie.overview}}</p>
+  </div>
+  <div class="box-date">
+    <div class="cal"><img src="assets/images/cal.jpg"></div>
+    <div class="date">{{movie.release_date.substr(6,13) | date:'d LLL'}}</div>
+  </div>
+</div>
+</div>
