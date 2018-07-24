@@ -7,7 +7,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './catalogo.component.html'
 })
 export class CatalogoComponent {
-
   constructor ( public _ps:PeliculasService
                 //private modalService: NgbModal
   ) {
@@ -17,5 +16,9 @@ export class CatalogoComponent {
   //   //this.results = results;
   //   this.modalService.open(detalleModal);
   // }
+
+  term: string = '';
+
+  p: number = 1;
 
 }
