@@ -8,7 +8,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class CatalogoComponent {
 
-  constructor ( private _ps:PeliculasService
+  constructor ( public _ps:PeliculasService
                 //private modalService: NgbModal
   ) {
 
